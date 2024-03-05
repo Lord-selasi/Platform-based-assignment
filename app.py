@@ -24,7 +24,7 @@ def get_all_books():
                 'title': book[1],
                 'publication_year': book[2],
                 'author': book[3] #Include authors name in the book dictionary
-                # Add other attributes here as needed
+                
             }
             book_list.append(book_dict)
 
@@ -70,14 +70,18 @@ def add_book():
         data = request.get_json()
         title = data.get('title')
         publication_year = data.get('publication_year')
-        author_name = data.get('author') #Retrieve authors's name 
+        authors = data.get('authors') #Retrieve authors's names as a list changed
 
         # Insert the book into the database along with the author's name 
         cursor.execute("INSERT INTO Books (title, publication_year) VALUES (?, ?)", (title, publication_year))
         book_id = cursor.lastrowid #Getting the ID of the newly inserted book
-        cursor.execute("INSERT INTO Authors (name) VALUES (?)", (author_name,))
-        author_id = cursor.lastrowid #Getting the ID of the newly inserted author
-        cursor.execute("INSERT INTO book_author (book_id, author_id) VALUES (?'?)", (book_id, author_id))
+
+        # Insert authors into Authors table if they don't exist and then link them to the book changed
+        for author in authors:
+            cursor.execute("INSERT OR IGNORE INTO Authors (name) VALUES (?)", (author,))
+            cursor.execute("SELECT author_id FROM Authors WHERE name=?", (author,))
+            author_id = cursor.fetchone()[0]
+            cursor.execute("INSERT INTO book_author (book_id, author_id) VALUES (?, ?)", (book_id, author_id))
 
         conn.commit()
         conn.close()

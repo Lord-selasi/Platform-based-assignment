@@ -1,58 +1,62 @@
-/* Add styles for the button */
-#showBooksButton {
-    margin: 20px; /* Adjust the margin as needed */
-}
 /* Add styles for the container */
+#allbooks-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+}
+
+/* Add styles for the book list container */
 #allbooks {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
 /* Add styles for each book */
 .book {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 /* Add styles for book titles */
 .book h2 {
-    margin-bottom: 5px;
-    font-size: 18px;
-    color: #333;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #333;
 }
 
 /* Add styles for author names */
 .book .author {
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #666;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #666;
 }
 
 /* Add styles for publication years */
 .book .publication-year {
-    font-size: 14px;
-    color: #888;
+  font-size: 14px;
+  color: #888;
 }
 
 /* Add styles for the button */
 #showBooksButton {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* Add hover effect for the button */
 #showBooksButton:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
