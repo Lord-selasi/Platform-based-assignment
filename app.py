@@ -86,6 +86,9 @@ def add_book():
         conn.commit()
         conn.close()
 
+         # Print a message to the server logs
+        print("Book added successfully")
+
         return jsonify({'message': 'Book added successfully'})
     except Exception as e:
         return jsonify({'error': str(e)})
